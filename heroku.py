@@ -264,12 +264,12 @@ def sabtu(name):
 	mning(name)
 
 
-schedule.every().monday.at("07:00").do(senin,name)
-schedule.every().tuesday.at("07:00").do(selasa,name)
-schedule.every().wednesday.at("07:00").do(rabu,name)
-schedule.every().thursday.at("07:00").do(kamis,name)
-schedule.every().friday.at("07:00").do(jumat,name)
-schedule.every().saturday.at("07:00").do(sabtu,name)
+schedule.every().monday.at("12:00").do(senin,name)
+schedule.every().tuesday.at("12:00").do(selasa,name)
+schedule.every().wednesday.at("12:00").do(rabu,name)
+schedule.every().thursday.at("12:00").do(kamis,name)
+schedule.every().friday.at("12:00").do(jumat,name)
+schedule.every().saturday.at("12:00").do(sabtu,name)
 
 while i==1:
 	schedule.run_pending()
