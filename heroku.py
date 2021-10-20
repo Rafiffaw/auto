@@ -19,7 +19,6 @@ op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 op.add_argument("--headless")
 op.add_argument("--no-sandbox")
 op.add_argument("--disable-dev-sh-usage")
-
 browser = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
 
 
@@ -66,16 +65,12 @@ def tele(name):
 
 	response = requests.get(url, headers=headers, cookies=cookies)
 	soup = BeautifulSoup(response.content, 'lxml')
-
 	jobs = soup.find_all('div', class_ = 'posty')
-	waktu = soup.find('div', class_ = 'usy-dt').span.text
 	for job in jobs:
 		wkt = job.find('div', class_ = 'usy-dt').span.text
 		if 'Jam' in wkt:
 			isi = job.find('div', class_ = 'job_descp').text
 			notify('Timeline Mata Pelajaran ' + name + isi)
-	if 'Jam' not in waktu:
-		notify('Hari ini tidak ada timeline di mata pelajaran ' + name)
 
 def do():
 	
@@ -263,42 +258,18 @@ def jumat(name):
 def sabtu(name):
 	print('sabtu')
 	mnbk(name)
-	mning(name)
 	mnmtk(name)
 	mnpjok(name)
 	mnind(name)
+	mning(name)
 
-def hari(name):
-	
-	if "Mon" in now:
-		senin(name)
 
-	if "Tue" in now:
-		selasa(name)
-
-	if "Wed" in now:
-		rabu(name)
-
-	if "Thu" in now:
-		kamis(name)
-
-	if "Fri" in now:
-		jumat(name)
-
-	if "Sat" in now:
-		sabtu(name)
-
-	if "Sun" in now:
-		print('Minggu')
-
-hari()
-
-schedule.every().monday.at("07:00").do(senin)
-schedule.every().tuesday.at("07:00").do(selasa)
-schedule.every().wednesday.at("07:00").do(rabu)
-schedule.every().thursday.at("07:00").do(kamis)
-schedule.every().friday.at("07:00").do(jumat)
-schedule.every().saturday.at("07:00").do(sabtu)
+schedule.every().monday.at("07:00").do(senin,name)
+schedule.every().tuesday.at("07:00").do(selasa,name)
+schedule.every().wednesday.at("07:00").do(rabu,name)
+schedule.every().thursday.at("07:00").do(kamis,name)
+schedule.every().friday.at("07:00").do(jumat,name)
+schedule.every().saturday.at("07:00").do(sabtu,name)
 
 while i==1:
 	schedule.run_pending()
