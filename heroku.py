@@ -22,8 +22,8 @@ op.add_argument("--disable-dev-sh-usage")
 browser = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
 
 
-usernameStr = os.environ.get("username")
-passwordStr = os.environ.get("userpass")
+usernameStr = "0078904560"
+passwordStr = "QC9ZDH"
 
 browser.get('https://kbm.mtsn2ponorogo.sch.id/')
 current_url = browser.current_url
