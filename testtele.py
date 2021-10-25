@@ -1,6 +1,4 @@
 import telegram
-import json
-import requests
 
 def notify(message):
     token = '1959542063:AAGCe7w-2TGCZ_P3ZJPX-NbhB-EERllFSFY'
