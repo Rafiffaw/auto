@@ -1,6 +1,7 @@
 import os
+from os import name
+import telegram
 from bs4 import BeautifulSoup
-from testtele import notify
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -14,12 +15,11 @@ now = now.strftime("%a")
 i = 1
 
 
-op = webdriver.ChromeOptions()
-op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-op.add_argument("--headless")
-op.add_argument("--no-sandbox")
-op.add_argument("--disable-dev-shm-usage")
-browser = webdriver.Chrome(executable_path= os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
+browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 
 usernameStr = "0078904560"
@@ -42,6 +42,12 @@ lewatitmbl = WebDriverWait(browser, 30).until(EC.presence_of_element_located((By
 lewatitmbl.click()
 
 #VAR VAR VAR VAR VAR VAR VAR VAR VAR VAR VAR
+
+def notify(message):
+    token = '1959542063:AAGCe7w-2TGCZ_P3ZJPX-NbhB-EERllFSFY'
+    chat_id = 1767730053
+    bot = telegram.Bot(token=token)
+    bot.sendMessage(chat_id=chat_id, text=message)
 
 def tele(name):
 	sleep(2)
