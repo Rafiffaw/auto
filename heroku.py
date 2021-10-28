@@ -1,6 +1,5 @@
 import os
 from os import name
-import telegram
 from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
@@ -42,12 +41,6 @@ lewatitmbl = WebDriverWait(browser, 30).until(EC.presence_of_element_located((By
 lewatitmbl.click()
 
 #VAR VAR VAR VAR VAR VAR VAR VAR VAR VAR VAR
-
-def notify(message):
-    token = '1959542063:AAGCe7w-2TGCZ_P3ZJPX-NbhB-EERllFSFY'
-    chat_id = 1767730053
-    bot = telegram.Bot(token=token)
-    bot.sendMessage(chat_id=chat_id, text=message)
 
 def tele(name):
 	sleep(2)
