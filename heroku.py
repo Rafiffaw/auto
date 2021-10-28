@@ -15,11 +15,11 @@ now = now.strftime("%a")
 i = 1
 
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--no-sandbox")
-browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+options = webdriver.ChromeOptions()
+options.add_argument("--headless")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--no-sandbox")
+browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
 
 
 usernameStr = "0078904560"
@@ -273,4 +273,3 @@ schedule.every().saturday.at("12:00").do(sabtu,name)
 
 while i==1:
 	schedule.run_pending()
-	sleep(1)
