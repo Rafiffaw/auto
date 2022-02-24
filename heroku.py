@@ -22,8 +22,8 @@ options.add_argument("--no-sandbox")
 browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
 
 
-usernameStr = "0078904560"
-passwordStr = "QC9ZDH"
+usernameStr = "USERNAME"
+passwordStr = "PASSWORD"
 
 browser.get('https://kbm.mtsn2ponorogo.sch.id/')
 current_url = browser.current_url
