@@ -25,7 +25,7 @@ browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), 
 usernameStr = "USERNAME"
 passwordStr = "PASSWORD"
 
-browser.get('https://kbm.mtsn2ponorogo.sch.id/')
+browser.get('WEBSITE')
 current_url = browser.current_url
 
 username = browser.find_element_by_name('username')
